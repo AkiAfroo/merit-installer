@@ -20,8 +20,15 @@ if [ ! -f $merit/minerd ]; then
 					make
 					chmod +x minerd
 					clear
-					echo "Merit Miner was compiled!"
-					sleep 2					
+					if [ ! -f $merit/minerd ]; then
+						echo "Merit miner was compiled!"
+						sleep 2	
+						exit 0
+					else
+						echo "Oops, something went wrong! "
+						sleep 2
+					exit
+					fi
 fi	
 			
 	cd $merit
@@ -32,5 +39,4 @@ fi
 	else
 	/$merit/minerd -o stratum+tcp://pool.merit.me:3333 -u $nickname -t 2 -C 2					
 	fi							
-exit 0										
-							
+exit 0		
