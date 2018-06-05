@@ -28,7 +28,7 @@ if [ ! -f $merit/minerd ]; then
 					fi
 fi								
 						
-fi							
+						
 
 	cd $merit
 	read -p "Please type your Merit address or Alias: " nickname
