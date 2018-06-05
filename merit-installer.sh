@@ -19,16 +19,13 @@ if [ ! -f $merit/minerd ]; then
 					./configure
 					make
 					chmod +x minerd
-					if [ ! -f $merit/minerd ]; then
-						clear
-						echo "Merit Miner was compiled!"
-						sleep 2
-					else
-					echo "something was wrong!"
-					fi
+					clear
+					echo "Merit Miner was compiled!"
+					sleep 2
+					exit 0
 fi								
 						
-						
+							
 
 	cd $merit
 	read -p "Please type your Merit address or Alias: " nickname
