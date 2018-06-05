@@ -27,12 +27,11 @@ else
 				exit 1
 						else
 							while true; do
-							read -p "You entered %s  "$nickname" is that correct?" yn
-							case  $yn in
-									[Yy]* ) ./minerd -o stratum+tcp://pool.merit.me:3333 -u $nickname -t 2 -C 2; break;;
-									[Nn]* ) exit;;
-										* ) echo "Please answer yes or no.";;
-											esac
+							read -p "You entered %s  "$nickname" is that correct?"
+							select yn in "Yes" "No"
+									Yes ) ./minerd -o stratum+tcp://pool.merit.me:3333 -u $nickname -t 2 -C 2;;
+									No ) exit;;
+									esac
 				fi	
 fi											
 											done
