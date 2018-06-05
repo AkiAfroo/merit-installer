@@ -18,9 +18,9 @@ if [ ! -f $merit/minerd ]; then
 					./nomacro.pl
 					./configure
 					make
-					chmod +x minerd
 					clear
 					if [ ! -f $merit/minerd ]; then
+						chmod +x minerd
 						echo "Merit miner was compiled!"
 						sleep 2	
 						exit 0
