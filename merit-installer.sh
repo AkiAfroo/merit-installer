@@ -22,7 +22,7 @@ if [ ! -f $merit/minerd ]; then
 					clear
 					echo "Merit Miner was compiled!"
 					sleep 2
-					exit 0
+					
 fi								
 						
 							
