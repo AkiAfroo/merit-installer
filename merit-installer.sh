@@ -20,13 +20,15 @@ if [ ! -f $merit/minerd ]; then
 					make
 					chmod +x minerd
 					if [ ! -f $merit/minerd ]; then
-					clear
-					echo "Merit Miner was compiled!"
-					sleep 2
+						clear
+						echo "Merit Miner was compiled!"
+						sleep 2
+					else
+					echo "something was wrong!"
 					fi
 fi								
 						
-							
+fi							
 
 	cd $merit
 	read -p "Please type your Merit address or Alias: " nickname
