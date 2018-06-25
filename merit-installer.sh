@@ -1,4 +1,14 @@
 #!/bin/bash
+
+numcores=$(cat /proc/cpuinfo | grep processor | wc -l)
+if [[ $(grep avx2 /proc/cpuinfo) ]]; then 
+    configstring="-O3 -mavx2"; 
+elif [[ $(grep avx /proc/cpuinfo) ]]; then     
+    configstring="-O2 -mavx"; 
+else 
+    configstring="-O2"; 
+fi
+
 # install merit miner on ubuntu
 # created by AkiAfroo
 cd /home/$USER
@@ -17,8 +27,8 @@ if [ ! -f $merit/minerd ]; then
 					sleep 3
 					./autogen.sh
 					./nomacro.pl
-					./configure
-					make
+					CFLAGS=${configstring} CXXFLAGS=${configstring} ./configure
+					make -j${numcores}
 					chmod +x minerd
 					clear
 					echo "Merit Miner was compiled!"
@@ -31,6 +41,6 @@ fi
 	printf '%s\n' "No input entered"
 	exit 1
 	else
-	/$merit/minerd -o stratum+tcp://pool.merit.me:3333 -u $nickname -t 2 -C 2					
+	/$merit/minerd -o stratum+tcp://pool.merit.me:3333 -u $nickname -t ${numcores} -C 2					
 	fi							
 exit 0		
