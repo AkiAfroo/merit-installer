@@ -1,4 +1,6 @@
 #!/bin/bash
+# install merit miner on ubuntu
+# created by AkiAfroo
 
 numcores=$(cat /proc/cpuinfo | grep processor | wc -l)
 if [[ $(grep avx2 /proc/cpuinfo) ]]; then 
@@ -8,9 +10,6 @@ elif [[ $(grep avx /proc/cpuinfo) ]]; then
 else 
     configstring="-O2"; 
 fi
-
-# install merit miner on ubuntu
-# created by AkiAfroo
 cd /home/$USER
 mkdir -p /home/$USER/merit/
 #meritfolder="cd /home/$USER/merit/"
